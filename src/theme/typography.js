@@ -32,6 +32,11 @@ const typography = {
     fontSize: "clamp(0.8888rem, 0.8679rem + 0.0929vw, 0.9375rem)",
     lineHeight: 1.7,
   },
+  titleForm: {
+    fontSize: "clamp(0.8888rem, 0.8679rem + 0.0929vw, 0.9375rem)",
+    lineHeight: 1.7,
+    fontFamily : "Changa"
+  },
 };
 
 export default typography;

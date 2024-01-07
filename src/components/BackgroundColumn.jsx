@@ -1,53 +1,52 @@
-// import { useEffect } from "react";
-// import "../styles.css"; 
+import "./BackgroundColumn.css";
 
-// const BackgroundColumn = () => {
-//   useEffect(() => {
-//     const iconSection = document.getElementsByClassName("icon-section")[0];
+const images = [
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=1",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=2",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=3",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=4",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=6",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=7",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=8",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=1",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=3",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=4",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=6",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=7",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=8",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=1",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=3",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=4",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=6",
+  "https://loremflickr.com/100/100/nature,mountain,river,tree?random=7",
+];
 
-//     for (let i = 0; i < 3; i++) {
-//       const div = document.createElement("div");
-//       div.setAttribute("class", "icon-holder");
+function Scroller() {
+  const imagesContent = images.map((url) => <img src={url} />);
 
-//       setTimeout(() => {}, 1000);
+  const rowsNum = 15;
+  const columnsNum = 8;
 
-//       for (let j = 0; j < 15; j++) {
-//         const randomNumber = Math.floor(Math.random() * 100);
-//         const imageSrc = `https://loremflickr.com/100/100/nature,mountain,river,tree?random=${randomNumber}`;
+  const rowsContent = [];
+  for (let i = 0; i < rowsNum; i++) {
+    rowsContent.push(
+      <div className="scroller">
+        <div className="scroller__inner">{imagesContent}</div>
+      </div>
+    );
+  }
 
-//         const img = document.createElement("img");
-//         img.setAttribute("class", "icon");
-//         img.setAttribute("src", imageSrc);
-
-//         div.appendChild(img);
-//       }
-
-//       iconSection.appendChild(div);
-//     }
-//   }, []); 
-
-//   return <div className="icon-section"></div>;
-// };
-
-// export default BackgroundColumn;
-// const styles = {
-//   background: {
-//     height : "100%",
-//     backgroundColor: "#FF0000",
-//     flexGrow: 1,
-//     flexShrink: 1,
-//     color: "#FFF",
-//   },
-// };
-
-function BackgroundSide() {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet aspernatur
-      eveniet, itaque fuga non maxime ullam repellat deleniti atque facere error
-      unde consectetur, quos eaque laudantium eius eos rem molestiae.
-    </div>
+    <section className="scroller-section">
+      <div
+        className="scroller-wrapper"
+        style={{ rotate: "15deg", maxHeight: "calc(100vh - 4rem)" }}
+      >
+        {rowsContent}
+      </div>
+    </section>
   );
 }
 
-export default BackgroundSide;
+export default Scroller;
+

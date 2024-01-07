@@ -9,6 +9,7 @@ import { IconButton, Stack } from "@mui/material";
 import Logo from "../assets/logo.svg";
 import { makeStyles } from "@material-ui/core/styles";
 import { primary } from "../theme/palette";
+
 import Divider from "@mui/material/Divider";
 import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -97,7 +98,7 @@ const Register = () => {
       <Box>
         <Stack direction="column" alignItems="center" justifyContent="center">
           <img src={Logo} alt="Logo" className={classes.styleLogo} />
-          <Typography variant="h1" className={classes.typography}>
+          <Typography variant="titleForm" component="h1">
             Registration Info
           </Typography>
         </Stack>

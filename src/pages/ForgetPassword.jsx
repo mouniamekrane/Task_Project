@@ -4,7 +4,6 @@ import {
   Container,
   Stack,
   Typography,
-  InputAdornment,
   IconButton,
 } from "@mui/material";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,7 +11,7 @@ import PasswordImage from "../assets/password.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { primary } from "../theme/palette";
-import { Button, TextField } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 const PasswordTheme = makeStyles((theme) => ({
   boxStyle: {
@@ -20,7 +19,15 @@ const PasswordTheme = makeStyles((theme) => ({
     padding: theme.spacing(2),
     maxWidth: "400px",
     borderRadius: "0.5rem",
-    boxShadow: "0 0 1rem rgb(0 0 0 / 0.2)",
+  },
+  textField: {
+    backgroundColor: primary.light,
+    borderRadius: "0.4rem",
+    border: "none",
+    padding: "0.8rem",
+    width: "100%",
+    fontSize: "0.8rem",
+    marginTop: "2rem",
   },
   stylePassword: {
     width: "10rem",
@@ -28,22 +35,9 @@ const PasswordTheme = makeStyles((theme) => ({
     margin: "0 auto",
     display: "block",
   },
-  textField: {
-    margin: "2rem",
-    backgroundColor: primary.light,
-    borderRadius: "0.4rem",
-    border: "none",
-    width: "100%",
-    fontSize: "0.8rem",
-    "& .MuiOutlinedInput-root": {
-      borderRadius: "0.4rem",
-      border: "none",
-      "& fieldset": {
-        borderColor: "transparent",
-      },
-    },
-  },
+
   submitButton: {
+    marginTop: "2rem",
     texAlighn: "center",
     backgroundColor: primary.main,
     fontFamily: "Changa",
@@ -115,20 +109,11 @@ const ForgetPassword = () => {
           >
             Enter your name and we will send you a link to reset your password
           </Typography>
-          <TextField
-            variant="outlined"
-            placeholder="Enter your email"
-            className={classes.textField}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <IconButton>
-                    <EmailIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
+            <input
+              type="email"
+              placeholder="Enter Your Email"
+              className={classes.textField}
+            />
         </Stack>
       </Container>
       <Button

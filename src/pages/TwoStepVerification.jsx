@@ -20,7 +20,6 @@ const PasswordTheme = makeStyles((theme) => ({
     padding: theme.spacing(2),
     maxWidth: "400px",
     borderRadius: "0.5rem",
-    boxShadow: "0 0 1rem rgb(0 0 0 / 0.2)",
   },
   stylePassword: {
     width: "10rem",
