@@ -1,14 +1,18 @@
-import { Box, Button, Container, Typography } from "@material-ui/core";
-import { Stack } from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  Typography,
+} from "@material-ui/core";
+import { IconButton, Stack } from "@mui/material";
 import Logo from "../assets/logo.svg";
 import { makeStyles } from "@material-ui/core/styles";
 import { primary } from "../theme/palette";
-import GoogleIcon from "../components/GoogleIcon";
-import FbIcon from "../components/fbIcon";
 import Divider from "@mui/material/Divider";
 import { Link } from "react-router-dom";
-
-const themeLogin = makeStyles((theme) => ({
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+const themeRegister = makeStyles((theme) => ({
   styleLogo: {
     width: "7rem",
     height: "5rem",
@@ -38,12 +42,16 @@ const themeLogin = makeStyles((theme) => ({
     padding: "0.8rem",
     width: "100%",
     fontSize: "0.8rem",
-    
+    ":focus": {
+      borderColor: primary.dark,
+    },
   },
   typography: {
+    textAlign: "center",
     fontFamily: "Changa",
-    fontSize: "1.1rem",
+    fontSize: "1.3rem",
     fontWeight: 500,
+    whiteSpace: "nowrap",
   },
   label: {
     fontFamily: "Changa",
@@ -56,6 +64,7 @@ const themeLogin = makeStyles((theme) => ({
     fontWeight: 400,
     fontSize: "0.8rem",
     fontFamily: "Changa",
+    whiteSpace: "nowrap",
   },
   submitButton: {
     texAlighn: "center",
@@ -68,45 +77,57 @@ const themeLogin = makeStyles((theme) => ({
     borderRadius: "0.4rem",
     textTransform: "capitalize",
   },
+  backLink: {
+    display: "flex",
+    alignItems: "center",
+    color: primary.dark,
+    textDecoration: "none",
+    fontSize: "0.9rem",
+    textAlign: "center",
+  },
+  backIcon: {
+    marginRight: theme.spacing(1),
+  },
 }));
 
-const Login = () => {
-  const classes = themeLogin();
+const Register = () => {
+  const classes = themeRegister();
   return (
     <Container maxWidth="md">
-      <Stack direction="column" alignItems="center">
-        <img src={Logo} alt="Logo" className={classes.styleLogo} />
-        <Typography variant="body1" className={classes.typography}>
-          Sign Up Or Login With
-        </Typography>
-        <Stack direction="column" width="100%">
-          <Button
-            fullWidth
-            startIcon={<GoogleIcon />}
-            className={classes.button}
-          >
-            Google
-          </Button>
-          <Button fullWidth startIcon={<FbIcon />} className={classes.button}>
-            Facebook
-          </Button>
-          <Divider display="flex" sx={{ mt: 1 }}>
-            <Typography
-              variant="body2"
-              className={classes.divider}
-              color={primary.light}
-            >
-              OR
-            </Typography>
-          </Divider>
+      <Box>
+        <Stack direction="column" alignItems="center" justifyContent="center">
+          <img src={Logo} alt="Logo" className={classes.styleLogo} />
+          <Typography variant="h1" className={classes.typography}>
+            Registration Info
+          </Typography>
+        </Stack>
+
+        <Stack sx={{ my: 2 }}>
+          <Divider textAlign="right" color={primary.light}></Divider>
         </Stack>
         <Stack spacing={1} width="100%">
           <Box>
-            <Typography className={classes.label}>Email</Typography>
+            <Typography className={classes.label}>First Name</Typography>
+            <input
+              type="text"
+              className={classes.textField}
+              placeholder="xxxxx"
+            />
+          </Box>
+          <Box>
+            <Typography className={classes.label}>Last Name</Typography>
+            <input
+              type="text"
+              className={classes.textField}
+              placeholder="xxxxxx"
+            />
+          </Box>
+          <Box>
+            <Typography className={classes.label}>Email Address</Typography>
             <input
               type="email"
-              className={classes.textField}
               placeholder="email@example.org"
+              className={classes.textField}
             />
           </Box>
           <Box>
@@ -117,8 +138,16 @@ const Login = () => {
               className={classes.textField}
             />
           </Box>
+          <Box>
+            <Typography className={classes.label}>Confirm Password</Typography>
+            <input
+              type="password"
+              placeholder="*********"
+              className={classes.textField}
+            />
+          </Box>
         </Stack>
-      </Stack>
+      </Box>
       <Stack
         sx={{ my: 1 }}
         direction="row"
@@ -126,57 +155,24 @@ const Login = () => {
         justifyContent="flex-start"
       >
         <Link
-          to="/auth/forget-password"
           variant="subtitle2"
           underline="hover"
           className={classes.linkStyle}
         >
-          Forgot your password?
+          <Checkbox defaultChecked />I Have Agreed the terms and conditions
         </Link>
       </Stack>
       <Button fullWidth className={classes.submitButton}>
         Sign In
       </Button>
-      <Stack
-        sx={{ my: 1 }}
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Link
-          variant="subtitle2"
-          underline="hover"
-          className={classes.linkStyle}
-          to="/auth/register"
-        >
-          Need An Account ? Sign Up
-        </Link>
-      </Stack>
-      <Stack sx={{ mt: 8 }}>
-        <Divider textAlign="right" color={primary.light}></Divider>
-      </Stack>
-      <Stack
-        flexDirection="row"
-        justifyContent="space-between"
-        sx={{ mt: 2, mb: 1 }}
-      >
-        <Link
-          variant="subtitle2"
-          underline="hover"
-          className={classes.linkStyle}
-        >
-          Terms Of Services
-        </Link>
-        <Link
-          variant="subtitle2"
-          underline="hover"
-          className={classes.linkStyle}
-        >
-          Contact Us
-        </Link>
-      </Stack>
+      <Link to="/auth/login" className={classes.backLink}>
+        <IconButton className={classes.backIcon}>
+          <ArrowBackIcon />
+        </IconButton>
+        Back to Login
+      </Link>
     </Container>
   );
 };
 
-export default Login;
+export default Register;
