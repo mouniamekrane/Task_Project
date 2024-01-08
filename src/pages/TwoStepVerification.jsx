@@ -22,8 +22,8 @@ const PasswordTheme = makeStyles((theme) => ({
     borderRadius: "0.5rem",
   },
   stylePassword: {
-    width: "10rem",
-    height: "5rem",
+    width: "15rem",
+    height: "7rem",
     margin: "0 auto",
     display: "block",
   },
@@ -109,7 +109,7 @@ const TwoStepVerification = () => {
               fontFamily: "Changa",
               fontSize: "0.9rem",
               fontWeight: 300,
-              color: primary.darker,
+              color: primary.darkParagraph,
             }}
           >
             Enter the verification code sent to your email

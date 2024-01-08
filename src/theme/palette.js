@@ -1,8 +1,9 @@
 export const primary = {
-  main: "#FF90BC",
+  main: "#EF658D",
   light: "#ededed",
   dark: "#FF3FA4",
-  darker : "#607274",
+  darker: "#D0D4CA",
+  darkParagraph: "#7D7C7C",
   contrastText: "#FFF",
 };
 
@@ -10,7 +11,7 @@ export const mode = "light";
 
 export const text = {
   primary: "#191919",
-  secondary: "#A367B1",
+  secondary: "#FF3FA4",
 };
 
 export const background = {

@@ -63,7 +63,7 @@ const themeRegister = makeStyles((theme) => ({
   linkStyle: {
     textDecoration: "none",
     fontWeight: 400,
-    fontSize: "0.8rem",
+    fontSize: "13px",
     fontFamily: "Changa",
     whiteSpace: "nowrap",
   },
@@ -71,12 +71,11 @@ const themeRegister = makeStyles((theme) => ({
     texAlighn: "center",
     backgroundColor: primary.main,
     fontFamily: "Changa",
-    color: primary.contrastText,
+    borderRadius: "0.4rem",
+    textTransform: "capitalize",
     "&:hover": {
       backgroundColor: primary.dark,
     },
-    borderRadius: "0.4rem",
-    textTransform: "capitalize",
   },
   backLink: {
     display: "flex",
@@ -95,60 +94,58 @@ const Register = () => {
   const classes = themeRegister();
   return (
     <Container maxWidth="md">
-      <Box>
-        <Stack direction="column" alignItems="center" justifyContent="center">
-          <img src={Logo} alt="Logo" className={classes.styleLogo} />
-          <Typography variant="titleForm" component="h1">
-            Registration Info
-          </Typography>
-        </Stack>
+      <Stack direction="column" alignItems="center" justifyContent="center">
+        <img src={Logo} alt="Logo" className={classes.styleLogo} />
+        <Typography variant="titleForm" component="h2">
+          Registration Info
+        </Typography>
+      </Stack>
 
-        <Stack sx={{ my: 2 }}>
-          <Divider textAlign="right" color={primary.light}></Divider>
-        </Stack>
-        <Stack spacing={1} width="100%">
-          <Box>
-            <Typography className={classes.label}>First Name</Typography>
-            <input
-              type="text"
-              className={classes.textField}
-              placeholder="xxxxx"
-            />
-          </Box>
-          <Box>
-            <Typography className={classes.label}>Last Name</Typography>
-            <input
-              type="text"
-              className={classes.textField}
-              placeholder="xxxxxx"
-            />
-          </Box>
-          <Box>
-            <Typography className={classes.label}>Email Address</Typography>
-            <input
-              type="email"
-              placeholder="email@example.org"
-              className={classes.textField}
-            />
-          </Box>
-          <Box>
-            <Typography className={classes.label}>Password</Typography>
-            <input
-              type="password"
-              placeholder="*********"
-              className={classes.textField}
-            />
-          </Box>
-          <Box>
-            <Typography className={classes.label}>Confirm Password</Typography>
-            <input
-              type="password"
-              placeholder="*********"
-              className={classes.textField}
-            />
-          </Box>
-        </Stack>
-      </Box>
+      <Stack sx={{ my: 2 }}>
+        <Divider textAlign="right" color={primary.light}></Divider>
+      </Stack>
+      <Stack spacing={1} width="100%">
+        <Box>
+          <Typography className={classes.label}>First Name</Typography>
+          <input
+            type="text"
+            className={classes.textField}
+            placeholder="xxxxx"
+          />
+        </Box>
+        <Box>
+          <Typography className={classes.label}>Last Name</Typography>
+          <input
+            type="text"
+            className={classes.textField}
+            placeholder="xxxxxx"
+          />
+        </Box>
+        <Box>
+          <Typography className={classes.label}>Email Address</Typography>
+          <input
+            type="email"
+            placeholder="email@example.org"
+            className={classes.textField}
+          />
+        </Box>
+        <Box>
+          <Typography className={classes.label}>Password</Typography>
+          <input
+            type="password"
+            placeholder="*********"
+            className={classes.textField}
+          />
+        </Box>
+        <Box>
+          <Typography className={classes.label}>Confirm Password</Typography>
+          <input
+            type="password"
+            placeholder="*********"
+            className={classes.textField}
+          />
+        </Box>
+      </Stack>
       <Stack
         sx={{ my: 1 }}
         direction="row"
@@ -163,7 +160,13 @@ const Register = () => {
           <Checkbox defaultChecked />I Have Agreed the terms and conditions
         </Link>
       </Stack>
-      <Button fullWidth className={classes.submitButton}>
+      <Button
+        fullWidth
+        className={classes.submitButton}
+        style={{
+          color: primary.contrastText,
+        }}
+      >
         Sign In
       </Button>
       <Link to="/auth/login" className={classes.backLink}>

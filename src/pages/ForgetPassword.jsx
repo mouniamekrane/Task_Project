@@ -1,17 +1,11 @@
 import { Link } from "react-router-dom";
-import {
-  Box,
-  Container,
-  Stack,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { Box, Container, Stack, Typography, IconButton } from "@mui/material";
 import { makeStyles } from "@material-ui/core/styles";
 import PasswordImage from "../assets/password.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { primary } from "../theme/palette";
-import { Button } from "@material-ui/core";
+import { Button, InputAdornment, TextField } from "@material-ui/core";
 
 const PasswordTheme = makeStyles((theme) => ({
   boxStyle: {
@@ -24,15 +18,12 @@ const PasswordTheme = makeStyles((theme) => ({
     backgroundColor: primary.light,
     borderRadius: "0.4rem",
     border: "none",
-    padding: "0.8rem",
     width: "100%",
-    fontSize: "0.8rem",
     marginTop: "2rem",
   },
   stylePassword: {
-    width: "10rem",
-    height: "5rem",
-    margin: "0 auto",
+    width: "15rem",
+    height: "7rem",
     display: "block",
   },
 
@@ -41,7 +32,6 @@ const PasswordTheme = makeStyles((theme) => ({
     texAlighn: "center",
     backgroundColor: primary.main,
     fontFamily: "Changa",
-    color: primary.contrastText,
     "&:hover": {
       backgroundColor: primary.dark,
     },
@@ -104,20 +94,30 @@ const ForgetPassword = () => {
               fontFamily: "Changa",
               fontSize: "0.9rem",
               fontWeight: 300,
-              color: primary.darker,
+              color: primary.darkParagraph,
             }}
           >
             Enter your name and we will send you a link to reset your password
           </Typography>
-            <input
-              type="email"
-              placeholder="Enter Your Email"
-              className={classes.textField}
-            />
+          <TextField
+            variant="outlined"
+            placeholder="Enter Your Email"
+            className={classes.textField}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <IconButton>
+                    <EmailIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
         </Stack>
       </Container>
       <Button
         fullWidth
+        style={{ color: primary.contrastText }}
         className={classes.submitButton}
         href="/auth/verification-form"
       >

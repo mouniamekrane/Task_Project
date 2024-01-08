@@ -1,7 +1,7 @@
 const typography = {
   fontFamily: "'Changa', 'sans-serif'",
   fontSize: 16,
-  fontWeightRegular: 500,
+  fontWeightRegular: 400,
   fontWeightMedium: 700,
   fontWeightBold: 900,
   h1: {
@@ -35,7 +35,12 @@ const typography = {
   titleForm: {
     fontSize: "clamp(0.8888rem, 0.8679rem + 0.0929vw, 0.9375rem)",
     lineHeight: 1.7,
-    fontFamily : "Changa"
+    fontFamily: "Changa",
+  },
+  buttonFont: {
+    fontFamily: "Changa",
+    fontSize: "clamp(0.4444rem, 0.4679rem + 0.0929vw, 0.9375rem)",
+    
   },
 };
 

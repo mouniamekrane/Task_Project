@@ -30,6 +30,11 @@
     animation: scroll var(--_animation-duration, 40s)
         var(--_animation-direction, forwards) linear infinite;
 }
+.images{
+    width: 20rem;
+    height: 7rem;
+    border-radius: 1rem;
+}
 
 /* 
 

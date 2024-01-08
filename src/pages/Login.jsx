@@ -14,18 +14,17 @@ const themeLogin = makeStyles((theme) => ({
     height: "5rem",
   },
   button: {
+    borderRadius: "0.6rem",
     marginTop: theme.spacing(2),
     justifyContent: "left",
-    boxShadow: "none",
     backgroundColor: primary.light,
-    fontFamily: "Changa",
+    "&:hover": {
+      backgroundColor: primary.darker,
+    },
     textTransform: "capitalize",
     paddingLeft: "2rem",
-    fontSize: "0.9rem",
   },
   divider: {
-    fontFamily: "Changa",
-    fontWeight: 200,
     border: "1px solid ",
     borderColor: "rgba(0, 0, 0, 0.12)",
     borderRadius: "50%",
@@ -33,40 +32,33 @@ const themeLogin = makeStyles((theme) => ({
   },
   textField: {
     backgroundColor: primary.light,
-    borderRadius: "0.4rem",
+    borderRadius: "0.6rem",
     border: "none",
     padding: "0.8rem",
     width: "100%",
     fontSize: "0.8rem",
-    
-  },
-  typography: {
-    fontFamily: "Changa",
-    fontSize: "1.1rem",
-    fontWeight: 500,
   },
   label: {
     fontFamily: "Changa",
-    fontSize: "0.9rem",
+    fontSize: "1rem",
     fontWeight: 500,
-    width: "100%",
   },
   linkStyle: {
     textDecoration: "none",
     fontWeight: 400,
-    fontSize: "0.8rem",
+    fontSize: "0.9rem",
     fontFamily: "Changa",
   },
   submitButton: {
+    marginTop: "1rem",
     texAlighn: "center",
     backgroundColor: primary.main,
     fontFamily: "Changa",
-    color: primary.contrastText,
-    "&:hover": {
-      backgroundColor: primary.dark,
-    },
     borderRadius: "0.4rem",
     textTransform: "capitalize",
+    "&:hover": {
+      background: primary.dark,
+    },
   },
 }));
 
@@ -76,55 +68,54 @@ const Login = () => {
     <Container maxWidth="md">
       <Stack direction="column" alignItems="center">
         <img src={Logo} alt="Logo" className={classes.styleLogo} />
-        <Typography variant="body1" className={classes.typography}>
+        <Typography variant="titleForm" component="h2">
           Sign Up Or Login With
         </Typography>
-        <Stack direction="column" width="100%">
-          <Button
-            fullWidth
-            startIcon={<GoogleIcon />}
-            className={classes.button}
+        <Button
+          fullWidth
+          variant="buttonFont"
+          startIcon={<GoogleIcon />}
+          className={classes.button}
+          style={{ fontWeight: "400" }}
+        >
+          Google
+        </Button>
+        <Button
+          fullWidth
+          variant="buttonFont"
+          startIcon={<FbIcon />}
+          className={classes.button}
+          style={{ fontWeight: "400" }}
+        >
+          Facebook
+        </Button>
+        <Divider display="flex" sx={{ mt: 1, width: "100%" }}>
+          <Typography
+            variant="body2"
+            className={classes.divider}
+            color={primary.light}
           >
-            Google
-          </Button>
-          <Button fullWidth startIcon={<FbIcon />} className={classes.button}>
-            Facebook
-          </Button>
-          <Divider display="flex" sx={{ mt: 1 }}>
-            <Typography
-              variant="body2"
-              className={classes.divider}
-              color={primary.light}
-            >
-              OR
-            </Typography>
-          </Divider>
-        </Stack>
-        <Stack spacing={1} width="100%">
-          <Box>
-            <Typography className={classes.label}>Email</Typography>
-            <input
-              type="email"
-              className={classes.textField}
-              placeholder="email@example.org"
-            />
-          </Box>
-          <Box>
-            <Typography className={classes.label}>Password</Typography>
-            <input
-              type="password"
-              placeholder="*********"
-              className={classes.textField}
-            />
-          </Box>
-        </Stack>
+            OR
+          </Typography>
+        </Divider>
       </Stack>
-      <Stack
-        sx={{ my: 1 }}
-        direction="row"
-        alignItems="center"
-        justifyContent="flex-start"
-      >
+      <Stack width="100%">
+        <Box style={{ marginTop: "15px" }}>
+          <Typography className={classes.label}>Email</Typography>
+          <input
+            type="email"
+            className={classes.textField}
+            placeholder="email@example.org"
+          />
+        </Box>
+        <Box style={{ marginTop: "15px" }}>
+          <Typography className={classes.label}>Password</Typography>
+          <input
+            type="password"
+            placeholder="*********"
+            className={classes.textField}
+          />
+        </Box>
         <Link
           to="/auth/forget-password"
           variant="subtitle2"
@@ -133,27 +124,29 @@ const Login = () => {
         >
           Forgot your password?
         </Link>
-      </Stack>
-      <Button fullWidth className={classes.submitButton}>
-        Sign In
-      </Button>
-      <Stack
-        sx={{ my: 1 }}
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
-      >
+        <Button
+          fullWidth
+          className={classes.submitButton}
+          style={{
+            color: primary.contrastText,
+          }}
+        >
+          Sign In
+        </Button>
         <Link
           variant="subtitle2"
           underline="hover"
+          style={{ textAlign: "center", marginTop: 8 }}
           className={classes.linkStyle}
           to="/auth/register"
         >
           Need An Account ? Sign Up
         </Link>
-      </Stack>
-      <Stack sx={{ mt: 8 }}>
-        <Divider textAlign="right" color={primary.light}></Divider>
+        <Divider
+          textAlign="right"
+          color={primary.light}
+          sx={{ mt: 8 }}
+        ></Divider>
       </Stack>
       <Stack
         flexDirection="row"

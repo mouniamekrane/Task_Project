@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import BackgroundColumn from "../components/BackgroundColumn";
-import { makeStyles } from "@material-ui/core/styles";
+import BackgroundColumn from "../components/BackgroundSlider/BackgroundColumn";
 import { Box } from "@mui/material";
+import palette from "../theme/palette";
 
 const styles = {
   background: {
@@ -12,14 +12,13 @@ const styles = {
   },
   boxWrapper: {
     display:"grid",
-    gridTemplateColumns: "25rem 1fr",
-    background: "#fff",
-    borderRadius: "1rem",
-    boxShadow: "0 0 2rem rgb(0 0 0 / 0.1)",
+    gridTemplateColumns: "20rem 1fr",
+    background: palette.primary.contrastText,
+    borderRadius: "1.5rem",
+    boxShadow: "0 0 3rem rgb(0 0 0 / 0.4)",
     overflow: "hidden"
   }
 }
-
 
 function AuthLayout() {
   return (

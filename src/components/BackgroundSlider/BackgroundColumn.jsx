@@ -21,11 +21,12 @@ const images = [
   "https://loremflickr.com/100/100/nature,mountain,river,tree?random=7",
 ];
 
-function Scroller() {
-  const imagesContent = images.map((url) => <img src={url} />);
+function BackgroundColumn() {
+  const imagesContent = images.map((url) => (
+    <img src={url} className="images" />
+  ));
 
   const rowsNum = 15;
-  const columnsNum = 8;
 
   const rowsContent = [];
   for (let i = 0; i < rowsNum; i++) {
@@ -48,5 +49,4 @@ function Scroller() {
   );
 }
 
-export default Scroller;
-
+export default BackgroundColumn;
